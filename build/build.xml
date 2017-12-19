@@ -22,6 +22,8 @@
         <copy todir="${target.dir}">
             <fileset dir="${tmp.dir}">
                 <include name="**" />
+                <exclude name="vendor/**" />
+                <exclude name=".idea/**" />
             </fileset>
         </copy>
     </target>
