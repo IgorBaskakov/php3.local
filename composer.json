@@ -1,4 +1,14 @@
 {
+    "name": "baskakov/php3",
+    "description": "PHP3 Course Learning",
+    "keywords": ["pr-of-it", "php", "course", "t4"],
+    "type": "project",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Igor Baskakov"
+        }
+    ],
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.1",
