@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="PHP3" basedir="." default="build">
+
+    <target name="build" depends="copy, composer, symlink" />
+
+    <target name="vars">
+        <echo msg="Settings local vars..." />
+        <resolvepath propertyName="target.dir" file="c:\OSPanel\domains" />
+
+        <property name="domain.name" value="php3.server" />
+
+        <php returnProperty="build.time" function="date">
+            <param value="Y-m-d-H-i-s" />
+        </php>
+    </target>
+
+    <target name="copy" depends="vars">
+
+        <mkdir dir="${target.dir}/${build.time}" />
+
+        <copy todir="${target.dir}/${build.time}">
+            <fileset dir="./">
+                <include name="**" />
+                <exclude name="vendor/**" />
+                <exclude name=".idea/**" />
+                <exclude name="protected/config.php" />
+            </fileset>
+        </copy>
+
+        <copy todir="${target.dir}/${build.time}">
+            <fileset dir="./">
+                <include name="protected/config.php" />
+            </fileset>
+
+            <filterchain>
+                <replacetokens begintoken="{{" endtoken="}}">
+                    <token key="domain" value="${domain.name}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+    </target>
+
+    <target name="composer">
+        <exec dir="${target.dir}/${build.time}" command="composer install" passthru="true" checkreturn="true" />
+    </target>
+
+    <target name="symlink">
+        <symlink link="${target.dir}/current" target="${target.dir}/${build.time}" overwrite="true" />
+    </target>
+
+</project>
