@@ -28,7 +28,7 @@
             </fileset>
         </copy>
 
-        <copy todir="${target.dir}/${build.time}">
+        <copy todir="${target.dir}/${build.time}" overwrite="true">
             <fileset dir="./">
                 <include name="build/production/config.php" />
             </fileset>
