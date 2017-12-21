@@ -24,13 +24,13 @@
                 <include name="**" />
                 <exclude name="vendor/**" />
                 <exclude name=".idea/**" />
-                <exclude name="protected/config.php" />
+                <exclude name="build/production/config.php" />
             </fileset>
         </copy>
 
         <copy todir="${target.dir}/${build.time}">
             <fileset dir="./">
-                <include name="protected/config.php" />
+                <include name="build/production/config.php" />
             </fileset>
 
             <filterchain>
