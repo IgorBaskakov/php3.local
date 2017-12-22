@@ -24,18 +24,15 @@
                 <include name="**" />
                 <exclude name="vendor/**" />
                 <exclude name=".idea/**" />
-                <exclude name="build/production/config.php" />
             </fileset>
         </copy>
 
-        <copy todir="${target.dir}/${build.time}" overwrite="true">
-            <fileset dir="./">
-                <include name="build/production/config.php" />
-            </fileset>
-
+        <copy file="./build/production/config.php" tofile="${target.dir}/${build.time}/protected/config.php" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
                     <token key="domain" value="${domain.name}" />
+                    <token key="db.user" value="${db.user}"/>
+                    <token key="db.password" value="${db.password}"/>
                 </replacetokens>
             </filterchain>
         </copy>
