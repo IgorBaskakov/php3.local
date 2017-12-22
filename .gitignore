@@ -1,2 +1,4 @@
-/.idea
-/vendor
+.idea
+vendor
+protected/Cache
+public/Assets
