@@ -2,7 +2,7 @@
 
 <project name="PHP3" basedir="." default="build">
 
-    <target name="build" depends="copy, composer, symlink" />
+    <target name="build" depends="copy, composer, migrate, symlink" />
 
     <target name="vars">
         <echo msg="Settings local vars..." />
@@ -24,6 +24,7 @@
                 <include name="**" />
                 <exclude name="vendor/**" />
                 <exclude name=".idea/**" />
+                <exclude name="public/storage" />
             </fileset>
         </copy>
 
@@ -31,6 +32,8 @@
             <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
                     <token key="domain" value="${domain.name}" />
+                    <token key="db.user" value="${db.user}"/>
+                    <token key="db.password" value="${db.password}"/>
                 </replacetokens>
             </filterchain>
         </copy>
@@ -40,8 +43,13 @@
         <exec dir="${target.dir}/${build.time}" command="composer install" passthru="true" checkreturn="true" />
     </target>
 
+    <target name="migrate">
+        <exec dir="${target.dir}/${build.time}" command="php protected\t4.php /migrate" passthru="true" checkreturn="true" />
+    </target>
+
     <target name="symlink">
         <symlink link="${target.dir}/current" target="${target.dir}/${build.time}" overwrite="true" />
+        <symlink link="${target.dir}/current/public/storage" target="${target.dir}/filestorage/images" overwrite="true" />
     </target>
 
 </project>
