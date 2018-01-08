@@ -2,7 +2,7 @@
 
 <project name="PHP3" basedir="." default="build">
 
-    <target name="build" depends="copy, composer, migrate, symlink" />
+    <target name="build" depends="vars, phpunit, copy, composer, migrate, symlink" />
 
     <target name="vars">
         <echo msg="Settings local vars..." />
@@ -15,7 +15,7 @@
         </php>
     </target>
 
-    <target name="copy" depends="vars">
+    <target name="copy">
 
         <mkdir dir="${target.dir}/${build.time}" />
 
@@ -34,6 +34,8 @@
                     <token key="domain" value="${domain.name}" />
                     <token key="db.user" value="${db.user}"/>
                     <token key="db.password" value="${db.password}"/>
+                    <token key="email.user" value="${email.user}"/>
+                    <token key="email.password" value="${email.password}"/>
                 </replacetokens>
             </filterchain>
         </copy>
@@ -45,6 +47,10 @@
 
     <target name="migrate">
         <exec dir="${target.dir}/${build.time}" command="php protected\t4.php /migrate" passthru="true" checkreturn="true" />
+    </target>
+
+    <target name="phpunit">
+        <exec dir="./" command="phpunit -c .\tests\phpunit.xml" passthru="true" checkreturn="true" />
     </target>
 
     <target name="symlink">

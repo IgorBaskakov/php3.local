@@ -10,5 +10,12 @@ return [
             'password' => '',
             'dbname' => 'php3'
         ]
+    ],
+    'email' => [
+        'host' => 'smtp.gmail.com',
+        'username' => 'user',
+        'password' => 'pass',
+        'SMTPSecure' => 'tls',
+        'port' => 587
     ]
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Components\Counter;
 use T4\Http\Uploader;
 use T4\Mvc\Controller;
 
@@ -12,6 +13,9 @@ class Index
     public function actionDefault()
     {
         $this->data->domain = $this->app->config->domain;
+        if (isset($_SERVER['REMOTE_ADDR'])) {
+            Counter::updateCounter();
+        }
     }
 
     public function actionUpload()

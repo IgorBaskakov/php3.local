@@ -8,6 +8,10 @@
         <testsuite name="Math">
             <directory>Math</directory>
         </testsuite>
+
+        <testsuite name="Models">
+            <directory>Models</directory>
+        </testsuite>
     </testsuites>
 
 </phpunit>

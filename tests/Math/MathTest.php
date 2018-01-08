@@ -5,7 +5,6 @@ namespace App\tests\Components\Math;
 use App\Components\Math;
 use PHPUnit\Framework\TestCase;
 
-//\PHPUnit_Framework_TestCase
 class MathTest
     extends TestCase
 {
