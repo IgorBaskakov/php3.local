@@ -13,5 +13,8 @@
     "require": {
         "php": ">=7.1",
         "pr-of-it/t4":"*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6"
     }
 }
