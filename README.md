@@ -3,3 +3,16 @@
 _lesson 1._ https://github.com/IgorBaskakov/php3.local/tree/v1.3
 
 _lesson 2._ https://github.com/IgorBaskakov/php3.local/tree/v2.1
+
+_lesson 3._ https://github.com/IgorBaskakov/php3.local/tree/v3.1
+
+Класс User находится в .\protected\Models\User.php
+
+Тесты для проверки функции класса User располагаются в .\tests\Models\UserTest.php. 
+В тестах я проверяю 8 ситуаций с различными наборами данных.
+
+Консольная команда для отправки писем находится в .\protected\Commands\EmailSender.php
+
+Подсчет посетителей сайта реализовано в компоненте Counter в файле .\protected\Components\Counter.php 
+
+Файл с настройками cron находится .\cron\schedule.cron

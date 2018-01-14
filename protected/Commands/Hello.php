@@ -11,7 +11,8 @@ class Hello
 
     public function actionDefault()
     {
-        $name = $this->read('What is your name?');
-        $this->writeLn('Hello ' . $name .'!');
+        //$name = $this->read('What is your name?');
+        //$this->writeLn('Hello ' . $name .'!');
+        echo 'hello/n';
     }
 }

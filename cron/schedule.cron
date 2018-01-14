@@ -1,0 +1,1 @@
+*/30 * * * * php /var/www/current/protected/t4.php emailSender >> /var/log/cron.log &

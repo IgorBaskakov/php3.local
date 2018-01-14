@@ -2,7 +2,7 @@
 
 <project name="PHP3" basedir="." default="build">
 
-    <target name="build" depends="vars, phpunit, copy, composer, migrate, symlink" />
+    <target name="build" depends="vars, copy, composer, migrate, phpunit, symlink, cron" />
 
     <target name="vars">
         <echo msg="Settings local vars..." />
@@ -50,12 +50,16 @@
     </target>
 
     <target name="phpunit">
-        <exec dir="./" command="phpunit -c .\tests\phpunit.xml" passthru="true" checkreturn="true" />
+        <exec dir="${target.dir}/${build.time}" command="phpunit -c .\tests\phpunit.xml" passthru="true" checkreturn="true" />
     </target>
 
     <target name="symlink">
         <symlink link="${target.dir}/current" target="${target.dir}/${build.time}" overwrite="true" />
         <symlink link="${target.dir}/current/public/storage" target="${target.dir}/filestorage/images" overwrite="true" />
+    </target>
+
+    <target name="cron">
+        <exec dir="${target.dir}/current" command="crontab ${target.dir}/current/cron/schedule.cron" passthru="true" checkreturn="true" />
     </target>
 
 </project>

@@ -8,31 +8,31 @@ class Counter
     const DATA_DIR = __DIR__ . '/../Data';
     const FILE_NAME = 'counter.txt';
 
-    public static function updateCounter()
+    public static function updateCounter(): void
     {
-        Counter::checkFile();
+        static::checkFile();
 
-        $dataFile = Counter::getCount();
-        if ($dataFile === false) {
+        $dataFile = static::getCount();
+        if (false === $dataFile) {
             return;
         }
 
         $dataFile++;
-        file_put_contents(Counter::DATA_DIR . '/' . Counter::FILE_NAME, $dataFile);
+        file_put_contents(static::DATA_DIR . '/' . static::FILE_NAME, $dataFile);
     }
 
-    public static function getCount()
+    public static function getCount(): string
     {
-        return file_get_contents(Counter::DATA_DIR . '/' . Counter::FILE_NAME);
+        return file_get_contents(static::DATA_DIR . '/' . static::FILE_NAME);
     }
 
-    protected static function checkFile()
+    protected static function checkFile(): void
     {
-        if (!is_dir(Counter::DATA_DIR)) {
-            mkdir(Counter::DATA_DIR);
+        if (!is_dir(static::DATA_DIR)) {
+            mkdir(static::DATA_DIR);
         }
-        if (!is_file(Counter::DATA_DIR . '/' . Counter::FILE_NAME)) {
-            file_put_contents(Counter::DATA_DIR . '/' . Counter::FILE_NAME, 0);
+        if (!is_file(static::DATA_DIR . '/' . static::FILE_NAME)) {
+            file_put_contents(static::DATA_DIR . '/' . static::FILE_NAME, 0);
         }
     }
 

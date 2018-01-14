@@ -33,8 +33,7 @@ class EmailSender
         }
         $mail->Body    = $countVisitors . ' посещений сайта на текущую дату (' . date('Y-m-d H:i:s') . ')';
         $mail->send();
-        echo 'Message has been sent';
-
+        echo 'Message has been sent\n';
     }
 
 }
