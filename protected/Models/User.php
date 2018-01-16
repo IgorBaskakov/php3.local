@@ -19,27 +19,19 @@ class User Extends Model
      */
     public function getName(): string
     {
-        if ($this->checkData($this->firstName) && $this->checkData($this->lastName)) {
-            if ($this->checkData($this->fullName)) {
+        if (!empty($this->firstName) && !empty($this->lastName)) {
+            if (!empty($this->fullName)) {
                 return $this->firstName . ' ' . $this->fullName . ' ' . $this->lastName;
             } else {
                 return $this->firstName . ' ' . $this->lastName;
             }
         } else {
-            if ($this->checkData($this->email)) {
+            if (!empty($this->email)) {
                 return $this->email;
             }
         }
 
         return '';
-    }
-
-    /*
-     * @return boolean
-     */
-    protected function checkData($data)
-    {
-        return isset($data) && !empty($data);
     }
 
 }
