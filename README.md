@@ -15,4 +15,15 @@ _lesson 3._ https://github.com/IgorBaskakov/php3.local/tree/v3.1
 
 Подсчет посетителей сайта реализовано в компоненте Counter в файле .\protected\Components\Counter.php 
 
-Файл с настройками cron находится .\cron\schedule.cron
+_lesson 4._ https://github.com/IgorBaskakov/php3.local/tree/v4.1
+
+Первое и второе задание выполнено в файле .\memoryArray.php
+
+В третьем задание исследовал объект $this в контроллере Index в методе actionDefault 
+.\protected\Controllers\Index.php
+
+Четвертое задание смотреть в файле .\memoryLoop.php
+
+
+
+

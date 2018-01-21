@@ -25,10 +25,8 @@ class User Extends Model
             } else {
                 return $this->firstName . ' ' . $this->lastName;
             }
-        } else {
-            if (!empty($this->email)) {
-                return $this->email;
-            }
+        } elseif (!empty($this->email)) {
+            return $this->email;
         }
 
         return '';
