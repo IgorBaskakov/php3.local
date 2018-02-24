@@ -1,13 +1,41 @@
 <?php
 
-//$a = [1, 2, 3];
+//class A
+//{
+//    public function test()
+//    {
+//        return 42;
+//        var_dump(debug_print_backtrace());
+//    }
+//}
 //
-//$info = get_defined_vars();
-//$info['a'] = 42;
+//class B extends A
+//{
 //
-//var_dump($info['a']);
+//}
 //
-//var_dump($a);
+//$a = new A;
 
+//$reflector = new ReflectionMethod(B::class, 'test');
+//$reflector->setAccessible(true);
+//
+//var_dump($reflector->invoke($a));
 
+function a()
+{
+    b();
+}
+
+function b()
+{
+    c();
+}
+
+function c()
+{
+    $arr = debug_backtrace();
+    var_dump($arr);
+}
+
+a();
 

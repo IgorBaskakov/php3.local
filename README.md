@@ -24,6 +24,7 @@ _lesson 4._ https://github.com/IgorBaskakov/php3.local/tree/v4.1
 
 Четвертое задание смотреть в файле .\memoryLoop.php
 
+_lesson 5._ https://github.com/IgorBaskakov/php3.local/tree/v5.1
 
 
 
