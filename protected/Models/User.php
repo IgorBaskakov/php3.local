@@ -20,8 +20,8 @@ class User Extends Model
     public function getName(): string
     {
         if (!empty($this->firstName) && !empty($this->lastName)) {
-            if (!empty($this->fullName)) {
-                return $this->firstName . ' ' . $this->fullName . ' ' . $this->lastName;
+            if (!empty($this->middleName)) {
+                return $this->firstName . ' ' . $this->middleName . ' ' . $this->lastName;
             } else {
                 return $this->firstName . ' ' . $this->lastName;
             }

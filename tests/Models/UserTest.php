@@ -20,7 +20,7 @@ class UserTest extends TestCase
 
         $user = new User;
         $user->firstName = 'Василий';
-        $user->fullName = 'Васильевич';
+        $user->middleName = 'Васильевич';
         $user->lastName = 'Пупкин';
         $user->email = 'vasya@pupkin.com';
         $this->assertSame('Василий Васильевич Пупкин', $user->getName());
@@ -45,7 +45,7 @@ class UserTest extends TestCase
 
         $user = new User([
             'firstName' => '',
-            'fullName' => '',
+            'middleName' => '',
             'lastName' => 'Сидоров',
             'email' => '',
         ]);
