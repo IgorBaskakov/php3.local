@@ -4,6 +4,7 @@ namespace App\Commands;
 
 
 use App\Components\Counter;
+use App\Components\MyMailer;
 use T4\Console\Command;
 
 class EmailSender
@@ -12,7 +13,7 @@ class EmailSender
 
     public function actionDefault()
     {
-        $mail = new \PHPMailer();
+        $mail = new MyMailer();
 
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
@@ -26,14 +27,14 @@ class EmailSender
         $mail->addAddress('igor.baskak@gmail.com', 'Baskakov Igor');
 
         $mail->isHTML(true);
-        $mail->Subject = 'Test my app';
+        $mail->Subject = 'Test email sender';
         $countVisitors = Counter::getCount();
         if ($countVisitors === false) {
             return false;
         }
         $mail->Body    = $countVisitors . ' посещений сайта на текущую дату (' . date('Y-m-d H:i:s') . ')';
         $mail->send();
-        echo 'Message has been sent\n';
+        echo 'Message has been sent' . "\n";
     }
 
 }

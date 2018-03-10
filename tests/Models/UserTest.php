@@ -16,32 +16,32 @@ class UserTest extends TestCase
             'email' => 'igor.baskak@gmail.com',
         ]);
         $this->assertInstanceOf(User::class, $user);
-        $this->assertSame('Игорь Баскаков', $user->getName());
+        $this->assertSame('Игорь Баскаков', $user->getFullName());
 
         $user = new User;
         $user->firstName = 'Василий';
         $user->middleName = 'Васильевич';
         $user->lastName = 'Пупкин';
         $user->email = 'vasya@pupkin.com';
-        $this->assertSame('Василий Васильевич Пупкин', $user->getName());
+        $this->assertSame('Василий Пупкин', $user->getFullName());
 
         $user = new User([
             'firstName' => 'Иван',
             'email' => 'ivan@ivanov.com',
         ]);
-        $this->assertSame('ivan@ivanov.com', $user->getName());
+        $this->assertSame('Иван', $user->getFullName());
 
         $user = new User;
-        $this->assertSame('', $user->getName());
+        $this->assertSame('', $user->getFullName());
 
         $user = new User([
             'lastName' => 'Петров',
             'email' => 'petrov@mail.com',
         ]);
-        $this->assertSame('petrov@mail.com', $user->getName());
+        $this->assertSame('Петров', $user->getFullName());
 
         $user = new User(['firstName' => 'Альберт']);
-        $this->assertSame('', $user->getName());
+        $this->assertSame('Альберт', $user->getFullName());
 
         $user = new User([
             'firstName' => '',
@@ -49,12 +49,12 @@ class UserTest extends TestCase
             'lastName' => 'Сидоров',
             'email' => '',
         ]);
-        $this->assertSame('', $user->getName());
+        $this->assertSame('Сидоров', $user->getFullName());
 
         $user = new User([
             'name' => 'Иван',
             'familia' => 'Иванов',
         ]);
-        $this->assertSame('', $user->getName());
+        $this->assertSame('', $user->getFullName());
     }
 }

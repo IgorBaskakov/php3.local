@@ -14,8 +14,8 @@ class Index
     {
         // самой длинной цепочкой, найденной мною, будет конфиг для доступа к БД, при выборе одного из параметров
         // подключения, например, драйвер.
-        var_dump($this->app->config->db->default->driver);
-        die;
+        //var_dump($this->app->config->db->default->driver);
+        //die;
 
         $this->data->domain = $this->app->config->domain;
         if (isset($_SERVER['REMOTE_ADDR'])) {

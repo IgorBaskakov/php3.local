@@ -26,5 +26,13 @@ _lesson 4._ https://github.com/IgorBaskakov/php3.local/tree/v4.1
 
 _lesson 5._ https://github.com/IgorBaskakov/php3.local/tree/v5.1
 
+1.1 Новый класс описан в файле .\protected\Components\MyMailer.php
+1.3 Тест для метода validateEmail класса MyMailer описан в файле .\tests\Components\MyMailerTest.php
 
+2.1 Класс User описан в файле .\protected\Models\User.php
+2.4 Переписал метод getFullName класса User, а также и тесты к этому методу в соответствии с внесенными изменениями
+
+3. В файле .\protected\Commands\PrintUser.php описано еще одно применение Reflection API. Через рефлексию мы проеряем: 
+реализует ли класс интерфейс Iterable, чтобы иметь возможность проитерироваться по свойствам объекта этого класса   
+   
 
